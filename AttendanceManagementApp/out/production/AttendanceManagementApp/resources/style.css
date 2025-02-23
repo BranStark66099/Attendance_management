@@ -1,0 +1,10 @@
+.text-field {
+    -fx-background-color: #2A3D66; /* Deep Blue */
+    -fx-text-fill: white; /* White text */
+    -fx-border-color: #5C7DB5; /* Light blue border */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+.text-field:focused {
+    -fx-background-color: #3E5580; /* Lighter blue when focused */
+}
