@@ -1,0 +1,95 @@
+package main;
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.transform.Transform;
+import javafx.scene.transform.Translate;
+import javafx.stage.Stage;
+
+public class LoginGUI extends Application{
+//    public static void main(String[] args) {
+//        System.out.println("Hello world!");
+//    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Attendance Management System");
+
+        Label usernamelabel = new Label("username");
+        Label passwordlabel = new Label("password");
+        usernamelabel.setFont(Font.font("Times New Roman", 20));
+        usernamelabel.setTextFill(Color.ALICEBLUE);
+        passwordlabel.setFont(Font.font("Times New Roman", 20));
+        passwordlabel.setTextFill(Color.ALICEBLUE);
+
+        Text title = new Text("Attendance Management System");
+
+        TextField username_text = new TextField("");
+        TextField password_text = new TextField("");
+        Button login_button = new Button("Login as Student");
+        Button login_button2 = new Button("Login as Teacher");
+
+        TextField studentID = new TextField("studentID");
+        Text studentID_text = new Text("StudentID");
+
+//        HBox hbox1 = new HBox(5);
+//        hbox1.getChildren().addAll(usernamelabel, username_text);
+//        HBox hbox2 = new HBox(5);
+//        hbox2.getChildren().addAll(passwordlabel, password_text);
+        HBox hBox3 = new HBox(5);
+        hBox3.getChildren().addAll(login_button, login_button2);
+        VBox vBox1 = new VBox();
+        //vBox1.getChildren().addAll(hbox1, hbox2);
+
+        GridPane gPane = new GridPane();
+        gPane.setHgap(10);
+        gPane.setVgap(10);
+        gPane.add(usernamelabel,0, 0);
+        gPane.add(username_text, 1,0);
+        gPane.add(passwordlabel, 0, 1);
+        gPane.add(password_text, 1, 1);
+
+        //hbox1.setAlignment(Pos.CENTER);
+        //hbox2.setAlignment(Pos.CENTER);
+        hBox3.setAlignment(Pos.CENTER);
+        gPane.setAlignment(Pos.CENTER);
+        gPane.getTransforms().add(new Translate(0, -50));
+
+        vBox1.getTransforms().add(new Translate(0, 150));
+        hBox3.getTransforms().add(new Translate(0, -200));
+
+        BorderPane pane = new BorderPane();
+        pane.setCenter(gPane);
+        pane.setBottom(hBox3);
+
+        Image image = new Image(getClass().getResource("/minimalist-4k-wallpaper-hd-26.png").toExternalForm());
+        BackgroundImage backgroundImage = new BackgroundImage(
+                image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                new BackgroundSize(100, 100, true, true,true, true)
+        );
+        ImageView imageView = new ImageView(image);
+        GaussianBlur blur = new GaussianBlur(15);
+        imageView.setEffect(blur);
+
+        //pane.setBackground(new Background(imageView));
+        pane.getChildren().add()
+
+        Scene scene = new Scene(pane, 1000, 500);
+        primaryStage.setTitle("Attendance Management");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
+    }
+}
